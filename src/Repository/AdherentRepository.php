@@ -281,13 +281,11 @@ class AdherentRepository extends ServiceEntityRepository implements UserLoaderIn
 
     public function findCoordinatorsByCitizenProject(CitizenProject $citizenProject): AdherentCollection
     {
-        $expr = $this->_em->getExpressionBuilder();
-
         $qb = $this
             ->createQueryBuilder('a')
             ->innerJoin('a.coordinatorCitizenProjectArea', 'ccpa')
             ->where('ccpa.codes IS NOT NULL')
-            ->andWhere(":code = ANY( string_to_array(ccpa.codes, ',') )")
+            ->andWhere(":code = ANY_OF(string_to_array(ccpa.codes, ','))")
             ->andWhere('LENGTH(ccpa.codes) > 0')
             ->orderBy('LOWER(ccpa.codes)', 'ASC')
             ->setParameter('code', CoordinatorManagedAreaUtils::getCodeFromCitizenProject($citizenProject))
@@ -793,7 +791,7 @@ class AdherentRepository extends ServiceEntityRepository implements UserLoaderIn
 
         return new ApiPaginator(new Paginator($this
             ->createQueryBuilder('a')
-            ->where("FIND_IN_SET(SUBSTRING_INDEX(a.postAddress.city, '-', -1), :insee_codes) > 0")
+            ->where("SUBSTRING_INDEX(a.postAddress.city, '-', -1) = ANY_OF(string_to_array(:insee_codes, ','))")
             ->andWhere('a.adherent = :enabled')
             ->setFirstResult(($page - 1) * $maxItemPerPage)
             ->setMaxResults($maxItemPerPage)
