@@ -188,6 +188,7 @@ class Adherent implements UserInterface, UserEntityInterface, GeoPointInterface,
      * @var SubscriptionType[]|Collection
      *
      * @ORM\ManyToMany(targetEntity="SubscriptionType", cascade={"persist"})
+     * @ORM\OrderBy({"id" = "ASC"})
      */
     private $subscriptionTypes;
 
