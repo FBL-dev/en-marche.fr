@@ -6,6 +6,8 @@ use Ramsey\Uuid\UuidInterface;
 
 class Message
 {
+    private const MESSAGE_CLASS_SUFFIX = 'Message';
+
     protected $uuid;
     protected $vars;
     protected $subject;
@@ -81,10 +83,7 @@ class Message
 
     final public function addRecipient(string $recipientEmail, $recipientName = null, array $vars = []): void
     {
-        $key = mb_strtolower($recipientEmail);
-        $vars = array_merge($this->vars, $vars);
-
-        $this->recipients[$key] = new MessageRecipient($recipientEmail, $recipientName, $vars);
+        $this->recipients[mb_strtolower($recipientEmail)] = new MessageRecipient($recipientEmail, $recipientName, $vars);
     }
 
     /**
@@ -160,5 +159,21 @@ class Message
     public function setReplyTo(string $replyTo): void
     {
         $this->replyTo = $replyTo;
+    }
+
+    /**
+     * Transforms the mail class name from `CamelCase` to `snake_case` and remove Mail word from the end
+     */
+    public function generateTemplateName(): string
+    {
+        $parts = explode('\\', static::class);
+
+        return strtolower(
+            preg_replace(
+                sprintf('#-%s$#', self::MESSAGE_CLASS_SUFFIX), // Remove _Message from the end
+                '',
+                ltrim(preg_replace('#[A-Z]([A-Z](?![a-z]))*#', '-$0', end($parts)), '-')
+            )
+        );
     }
 }
