@@ -15,7 +15,6 @@ class CitizenProjectCreationConfirmationMessage extends Message
     ): self {
         $message = new self(
             Uuid::uuid4(),
-            '244426',
             $adherent->getEmailAddress(),
             $adherent->getFullName(),
             'Nous avons bien reçu votre demande de création de projet citoyen !',

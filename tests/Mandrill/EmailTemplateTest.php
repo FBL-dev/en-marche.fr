@@ -114,7 +114,7 @@ class EmailTemplateTest extends TestCase
         $email = EmailTemplate::createWithMessage(DummyMessage::create(), 'contact@en-marche.fr');
 
         $body = [
-            'template_name' => 'dummy',
+            'template_name' => '66666',
             'template_content' => [],
             'message' => [
                 'subject' => 'Dummy Message',

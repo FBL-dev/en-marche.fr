@@ -15,7 +15,6 @@ class CitizenProjectRequestCommitteeSupportMessage extends Message
     ): self {
         $message = new self(
             Uuid::uuid4(),
-            '263222',
             $committeeSupervisor->getEmailAddress(),
             $committeeSupervisor->getFullName(),
             'Un projet citoyen a besoin du soutien de votre comité !',

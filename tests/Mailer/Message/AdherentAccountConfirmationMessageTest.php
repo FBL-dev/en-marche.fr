@@ -19,8 +19,7 @@ class AdherentAccountConfirmationMessageTest extends TestCase
 
         $message = AdherentAccountConfirmationMessage::createFromAdherent($adherent, 8, 15);
 
-        $this->assertInstanceOf(AdherentAccountConfirmationMessage::class, $message);
-        $this->assertSame('54673', $message->getTemplate());
+        $this->assertSame('adherent-account-confirmation', $message->generateTemplateName());
         $this->assertSame('Et maintenant ?', $message->getSubject());
         $this->assertCount(4, $message->getVars());
         $this->assertSame(
@@ -39,8 +38,6 @@ class AdherentAccountConfirmationMessageTest extends TestCase
         $this->assertSame('Jérôme Pichoud', $recipient->getFullName());
         $this->assertSame(
             [
-                'adherents_count' => 8,
-                'committees_count' => 15,
                 'target_firstname' => 'Jérôme',
                 'target_lastname' => 'Pichoud',
             ],

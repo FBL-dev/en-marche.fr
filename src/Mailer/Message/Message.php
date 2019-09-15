@@ -33,22 +33,22 @@ class Message
      */
     final public function __construct(
         UuidInterface $uuid,
-        string $template,
         string $recipientEmail,
         $recipientName,
         string $subject,
         array $commonVars = [],
         array $recipientVars = [],
-        string $replyTo = null
+        string $replyTo = null,
+        string $template = null
     ) {
         $this->uuid = $uuid;
         $this->recipients = [];
-        $this->template = $template;
         $this->subject = $subject;
         $this->vars = $commonVars;
         $this->replyTo = $replyTo;
         $this->cc = [];
         $this->bcc = [];
+        $this->template = $template;
 
         $this->addRecipient($recipientEmail, $recipientName, $recipientVars);
     }
@@ -71,7 +71,7 @@ class Message
         return $this->subject;
     }
 
-    final public function getTemplate(): string
+    final public function getTemplate(): ?string
     {
         return $this->template;
     }
@@ -162,7 +162,7 @@ class Message
     }
 
     /**
-     * Transforms the mail class name from `CamelCase` to `snake_case` and remove Mail word from the end
+     * Transforms the mail class name from `CamelCase` to `snake_case` and remove Message word from the end
      */
     public function generateTemplateName(): string
     {

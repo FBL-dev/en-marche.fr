@@ -16,7 +16,6 @@ class CitizenProjectCreationCoordinatorNotificationMessage extends Message
     ): self {
         $message = new self(
             Uuid::uuid4(),
-            '302629',
             $coordinator->getEmailAddress(),
             $coordinator->getFullName(),
             '[Projet citoyen] Un nouveau projet citoyen attend votre validation !',

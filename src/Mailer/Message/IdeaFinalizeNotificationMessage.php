@@ -5,7 +5,7 @@ namespace AppBundle\Mailer\Message;
 use AppBundle\Entity\Adherent;
 use Ramsey\Uuid\Uuid;
 
-final class IdeaPublishMessage extends Message
+final class IdeaFinalizeNotificationMessage extends Message
 {
     public static function create(Adherent $adherent, string $ideaLink): self
     {
@@ -13,7 +13,7 @@ final class IdeaPublishMessage extends Message
             Uuid::uuid4(),
             $adherent->getEmailAddress(),
             $adherent->getFullName(),
-            'Votre proposition a bien été publiée !',
+            'Votre proposition va être soumise aux votes !',
             [
                 'first_name' => $adherent->getFirstName(),
                 'idea_link' => $ideaLink,

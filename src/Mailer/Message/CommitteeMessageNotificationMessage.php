@@ -26,7 +26,6 @@ class CommitteeMessageNotificationMessage extends Message
 
         $message = new self(
             Uuid::uuid4(),
-            '63337',
             $recipient->getEmailAddress(),
             $recipient->getFullName(),
             "[Comité local] $subject",

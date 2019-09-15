@@ -12,7 +12,6 @@ final class AssessorRequestConfirmationMessage extends Message
     {
         $message = new self(
             Uuid::uuid4(),
-            '769755',
             $assessorRequest->getEmailAddress(),
             null,
             '',

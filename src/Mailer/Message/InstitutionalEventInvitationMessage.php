@@ -13,7 +13,6 @@ final class InstitutionalEventInvitationMessage extends Message
 
         $message = new self(
             Uuid::uuid4(),
-            '704914',
             $referent->getEmailAddress(),
             self::escape($referent->getFullName()),
             '',

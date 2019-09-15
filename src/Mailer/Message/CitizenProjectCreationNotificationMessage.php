@@ -12,7 +12,6 @@ class CitizenProjectCreationNotificationMessage extends Message
     {
         $message = new self(
             Uuid::uuid4(),
-            '263111',
             $adherent->getEmailAddress(),
             $adherent->getFullName(),
             'Un projet citoyen se lance près de chez vous !',

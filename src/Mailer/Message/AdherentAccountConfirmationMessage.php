@@ -14,7 +14,6 @@ final class AdherentAccountConfirmationMessage extends Message
     ): self {
         return new self(
             Uuid::uuid4(),
-            '54673',
             $adherent->getEmailAddress(),
             $adherent->getFullName(),
             'Et maintenant ?',

@@ -21,7 +21,6 @@ final class CitizenProjectNewFollowerMessage extends Message
 
         $message = new self(
             Uuid::uuid4(),
-            '274966',
             $host->getEmailAddress(),
             $host->getFullName(),
             'Un nouveau membre a rejoint votre projet citoyen !',

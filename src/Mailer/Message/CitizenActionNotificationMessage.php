@@ -28,7 +28,6 @@ class CitizenActionNotificationMessage extends Message
 
         $message = new static(
             Uuid::uuid4(),
-            '326404',
             $recipient->getEmailAddress(),
             $recipient->getFullName(),
             '[Projets citoyens] Une nouvelle action citoyenne au sein de votre projet citoyen !',

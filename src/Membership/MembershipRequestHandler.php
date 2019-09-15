@@ -9,6 +9,7 @@ use AppBundle\Entity\AdherentActivationToken;
 use AppBundle\History\EmailSubscriptionHistoryHandler;
 use AppBundle\Mailer\MailerService;
 use AppBundle\Mailer\Message\AdherentAccountActivationMessage;
+use AppBundle\Mailer\Message\AdherentAccountActivationReminderMessage;
 use AppBundle\Mailer\Message\AdherentAccountConfirmationMessage;
 use AppBundle\Mailer\Message\AdherentTerminateMembershipMessage;
 use AppBundle\OAuth\CallbackManager;
@@ -92,10 +93,10 @@ class MembershipRequestHandler
         $activationUrl = $this->generateMembershipActivationUrl($adherent, $token);
 
         if ($isReminder) {
-            return $this->mailer->sendMessage(AdherentAccountActivationMessage::createReminderFromAdherent($adherent, $activationUrl));
+            return $this->mailer->sendMessage(AdherentAccountActivationReminderMessage::create($adherent, $activationUrl));
         }
 
-        return $this->mailer->sendMessage(AdherentAccountActivationMessage::createFromAdherent($adherent, $activationUrl));
+        return $this->mailer->sendMessage(AdherentAccountActivationMessage::create($adherent, $activationUrl));
     }
 
     public function registerAsAdherent(MembershipRequest $membershipRequest): void

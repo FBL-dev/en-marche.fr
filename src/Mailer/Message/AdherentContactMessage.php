@@ -14,7 +14,6 @@ final class AdherentContactMessage extends Message
     {
         return new self(
             Uuid::uuid4(),
-            '114629',
             $contactMessage->getTo()->getEmailAddress(),
             $contactMessage->getTo()->getFullName(),
             $contactMessage->getFrom()->getFirstName().' vous a envoyé un message',

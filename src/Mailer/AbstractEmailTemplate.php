@@ -54,7 +54,7 @@ abstract class AbstractEmailTemplate implements \JsonSerializable
 
         $email = new static(
             $message->getUuid(),
-            $message->generateTemplateName(),
+            $message->getTemplate() ?? $message->generateTemplateName(),
             $message->getSubject(),
             $senderEmail,
             $senderName,

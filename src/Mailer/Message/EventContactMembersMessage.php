@@ -20,7 +20,6 @@ final class EventContactMembersMessage extends Message
 
         $message = new self(
             Uuid::uuid4(),
-            '116586',
             $recipient->getEmailAddress(),
             $recipient->getFirstName(),
             "[Événement] $subject",

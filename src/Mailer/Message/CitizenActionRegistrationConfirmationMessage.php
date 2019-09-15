@@ -14,7 +14,6 @@ final class CitizenActionRegistrationConfirmationMessage extends Message
 
         return new self(
             Uuid::uuid4(),
-            '270978',
             $registration->getEmailAddress(),
             $firstName,
             'Votre inscription a bien été prise en compte',
