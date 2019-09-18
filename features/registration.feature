@@ -231,24 +231,6 @@ Feature:
       "message": {
         "subject": "Et maintenant ?",
         "from_email": "contact@en-marche.fr",
-        "global_merge_vars": [
-          {
-            "name": "adherents_count",
-            "content": 1
-          },
-          {
-            "name": "committees_count",
-            "content": 0
-          },
-          {
-            "name": "target_firstname",
-            "content": ""
-          },
-          {
-            "name": "target_lastname",
-            "content": ""
-          }
-        ],
         "merge_vars": [
           {
             "rcpt": "jp@test.com",
@@ -256,10 +238,6 @@ Feature:
               {
                 "name": "target_firstname",
                 "content": "Jean-Pierre"
-              },
-              {
-                "name": "target_lastname",
-                "content": "Durand"
               }
             ]
           }

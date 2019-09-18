@@ -14,10 +14,12 @@ final class TonMacronFriendMessage extends Message
             $invitation->getFriendEmailAddress(),
             null,
             $invitation->getMailSubject(),
-            ['message' => $invitation->getMailBody()]
+            ['message' => $invitation->getMailBody()],
+            [],
+            $invitation->getAuthorEmailAddress(),
+            'basic-message'
         );
 
-        $message->setReplyTo($invitation->getAuthorEmailAddress());
         $message->setSenderName($invitation->getAuthorFirstName().' '.$invitation->getAuthorLastName());
         $message->addCC($invitation->getAuthorEmailAddress());
 

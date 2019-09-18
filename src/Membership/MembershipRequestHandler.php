@@ -3,7 +3,6 @@
 namespace AppBundle\Membership;
 
 use AppBundle\Address\PostAddressFactory;
-use AppBundle\Committee\CommitteeManager;
 use AppBundle\Entity\Adherent;
 use AppBundle\Entity\AdherentActivationToken;
 use AppBundle\History\EmailSubscriptionHistoryHandler;
@@ -26,8 +25,6 @@ class MembershipRequestHandler
     private $callbackManager;
     private $mailer;
     private $manager;
-    private $adherentManager;
-    private $committeeManager;
     private $adherentRegistry;
     private $referentTagManager;
     private $membershipRegistrationProcess;
@@ -41,8 +38,6 @@ class MembershipRequestHandler
         MailerService $mailer,
         ObjectManager $manager,
         AdherentRegistry $adherentRegistry,
-        AdherentManager $adherentManager,
-        CommitteeManager $committeeManager,
         ReferentTagManager $referentTagManager,
         MembershipRegistrationProcess $membershipRegistrationProcess,
         EmailSubscriptionHistoryHandler $emailSubscriptionHistoryHandler
@@ -54,8 +49,6 @@ class MembershipRequestHandler
         $this->mailer = $mailer;
         $this->manager = $manager;
         $this->adherentRegistry = $adherentRegistry;
-        $this->adherentManager = $adherentManager;
-        $this->committeeManager = $committeeManager;
         $this->referentTagManager = $referentTagManager;
         $this->membershipRegistrationProcess = $membershipRegistrationProcess;
         $this->emailSubscriptionHistoryHandler = $emailSubscriptionHistoryHandler;
@@ -148,11 +141,7 @@ class MembershipRequestHandler
 
     public function sendConfirmationJoinMessage(Adherent $user): void
     {
-        $this->mailer->sendMessage(AdherentAccountConfirmationMessage::createFromAdherent(
-            $user,
-            $this->adherentManager->countActiveAdherents(),
-            $this->committeeManager->countApprovedCommittees()
-        ));
+        $this->mailer->sendMessage(AdherentAccountConfirmationMessage::createFromAdherent($user));
     }
 
     public function update(Adherent $adherent, MembershipRequest $membershipRequest): void

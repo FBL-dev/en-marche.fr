@@ -42,18 +42,4 @@ final class InstitutionalEventInvitationMessage extends Message
 
         return $message;
     }
-
-    private static function formatDate(\DateTimeInterface $date, string $format): string
-    {
-        $formatter = new \IntlDateFormatter(
-            'fr_FR',
-            \IntlDateFormatter::NONE,
-            \IntlDateFormatter::NONE,
-            $date->getTimezone(),
-            \IntlDateFormatter::GREGORIAN,
-            $format
-        );
-
-        return $formatter->format($date);
-    }
 }

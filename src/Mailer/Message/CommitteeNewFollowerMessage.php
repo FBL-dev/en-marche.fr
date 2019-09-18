@@ -48,6 +48,7 @@ final class CommitteeNewFollowerMessage extends Message
             'member_firstname' => self::escape($newFollower->getFirstName()),
             'member_lastname' => $newFollower->getLastNameInitial(),
             'member_age' => $newFollower->getAge() ?? 'n/a',
+            'member_city' => $newFollower->getCityName() ?? 'n/a',
         ];
     }
 

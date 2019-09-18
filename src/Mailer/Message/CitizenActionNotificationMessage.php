@@ -80,18 +80,4 @@ class CitizenActionNotificationMessage extends Message
             'first_name' => self::escape($recipient->getFirstName()),
         ];
     }
-
-    private static function formatDate(\DateTimeInterface $date, string $format): string
-    {
-        $formatter = new \IntlDateFormatter(
-            'fr_FR',
-            \IntlDateFormatter::NONE,
-            \IntlDateFormatter::NONE,
-            $date->getTimezone(),
-            \IntlDateFormatter::GREGORIAN,
-            $format
-        );
-
-        return $formatter->format($date);
-    }
 }

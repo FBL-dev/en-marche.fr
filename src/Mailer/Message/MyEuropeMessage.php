@@ -17,10 +17,12 @@ final class MyEuropeMessage extends Message
             [
                 'message' => $invitation->getMailBody(),
                 'first_name_sender' => self::escape($invitation->getAuthorFirstName()),
-            ]
+            ],
+            [],
+            $invitation->getAuthorEmailAddress(),
+            'basic-message'
         );
 
-        $message->setReplyTo($invitation->getAuthorEmailAddress());
         $message->setSenderName($invitation->getAuthorFirstName().' '.$invitation->getAuthorLastName());
         $message->addCC($invitation->getAuthorEmailAddress());
 
