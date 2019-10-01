@@ -6,7 +6,7 @@ use AppBundle\Entity\Adherent;
 use AppBundle\Entity\Event;
 use Ramsey\Uuid\Uuid;
 
-class EventNotificationMessage extends Message
+final class EventNotificationMessage extends Message
 {
     /**
      * Creates a new message instance for a list of recipients.

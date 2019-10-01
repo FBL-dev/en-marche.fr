@@ -6,7 +6,7 @@ use AppBundle\Entity\Adherent;
 use AppBundle\Entity\CitizenAction;
 use Ramsey\Uuid\Uuid;
 
-class CitizenActionNotificationMessage extends Message
+final class CitizenActionNotificationMessage extends Message
 {
     public static function create(
         array $recipients,

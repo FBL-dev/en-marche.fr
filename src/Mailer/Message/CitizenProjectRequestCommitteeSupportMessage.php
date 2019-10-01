@@ -6,7 +6,7 @@ use AppBundle\Entity\Adherent;
 use AppBundle\Entity\CitizenProject;
 use Ramsey\Uuid\Uuid;
 
-class CitizenProjectRequestCommitteeSupportMessage extends Message
+final class CitizenProjectRequestCommitteeSupportMessage extends Message
 {
     public static function create(
         CitizenProject $citizenProject,

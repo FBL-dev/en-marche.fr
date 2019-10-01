@@ -5,7 +5,7 @@ namespace AppBundle\Mailer\Message;
 use AppBundle\Entity\Adherent;
 use Ramsey\Uuid\Uuid;
 
-class AdherentAccountActivationMessage extends Message
+final class AdherentAccountActivationMessage extends Message
 {
     public static function create(Adherent $adherent, string $confirmationLink): self
     {

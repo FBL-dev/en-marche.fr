@@ -6,7 +6,7 @@ use AppBundle\Entity\Adherent;
 use AppBundle\Entity\CitizenProject;
 use Ramsey\Uuid\Uuid;
 
-class CitizenProjectCreationCoordinatorNotificationMessage extends Message
+final class CitizenProjectCreationCoordinatorNotificationMessage extends Message
 {
     public static function create(
         Adherent $coordinator,

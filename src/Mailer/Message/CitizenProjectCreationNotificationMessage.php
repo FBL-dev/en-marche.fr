@@ -6,7 +6,7 @@ use AppBundle\Entity\Adherent;
 use AppBundle\Entity\CitizenProject;
 use Ramsey\Uuid\Uuid;
 
-class CitizenProjectCreationNotificationMessage extends Message
+final class CitizenProjectCreationNotificationMessage extends Message
 {
     public static function create(Adherent $adherent, CitizenProject $citizenProject, Adherent $creator): self
     {

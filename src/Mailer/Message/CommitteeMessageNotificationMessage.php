@@ -6,7 +6,7 @@ use AppBundle\Entity\Adherent;
 use AppBundle\Entity\CommitteeFeedItem;
 use Ramsey\Uuid\Uuid;
 
-class CommitteeMessageNotificationMessage extends Message
+final class CommitteeMessageNotificationMessage extends Message
 {
     /**
      * Creates a new message instance for a list of recipients.
