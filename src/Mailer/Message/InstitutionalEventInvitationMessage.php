@@ -15,7 +15,7 @@ final class InstitutionalEventInvitationMessage extends Message
             Uuid::uuid4(),
             $referent->getEmailAddress(),
             self::escape($referent->getFullName()),
-            '',
+            'Invitation pour '.self::escape($institutionalEvent->getName()),
             [
                 'institutional_event_name' => self::escape($institutionalEvent->getName()),
                 'institutional_event_type' => self::escape($institutionalEvent->getCategoryName()),

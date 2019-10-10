@@ -27,6 +27,7 @@ final class EventContactMembersMessage extends Message
                 'organizer_firstname' => self::escape($organizer->getFirstName()),
                 'target_message' => $content,
                 'event_name' => $recipient->getEvent()->getName(),
+                'sender_email' => $organizer->getEmailAddress(),
             ],
             ['target_firstname' => self::escape($recipient->getFirstName())],
             $organizer->getEmailAddress()

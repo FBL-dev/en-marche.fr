@@ -13,7 +13,7 @@ final class DataSurveyAnsweredMessage extends Message
             Uuid::uuid4(),
             $dataSurvey->getEmailAddress(),
             null,
-            '',
+            'Votre adhésion à La République En Marche !',
             ['first_name' => $dataSurvey->getFirstName()]
         );
     }

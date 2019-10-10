@@ -38,7 +38,7 @@ class EventNotificationMessageTest extends AbstractEventMessageTest
         $this->assertSame('event-notification', $message->generateTemplateName());
         $this->assertCount(4, $message->getRecipients());
         $this->assertSame('1 février - 15h30 : Nouvel événement de EM Lyon : En Marche Lyon', $message->getSubject());
-        $this->assertCount(7, $message->getVars());
+        $this->assertCount(8, $message->getVars());
         $this->assertSame(
             [
                 'animator_firstname' => 'Émmanuel',
@@ -48,6 +48,7 @@ class EventNotificationMessageTest extends AbstractEventMessageTest
                 'event_address' => '15 allées Paul Bocuse, 69006 Lyon 6e',
                 'event_slug' => self::SHOW_EVENT_URL,
                 'event_description' => 'Donec non dolor a sapien luctus lacinia id auctor orci',
+                'committee_name' => 'EM Lyon',
             ],
             $message->getVars()
         );
@@ -85,7 +86,7 @@ class EventNotificationMessageTest extends AbstractEventMessageTest
 
         $this->assertCount(1, $message->getRecipients());
         $this->assertSame('14 février - 08h00 : Nouvel événement de EM Lyon : petit-dejeuner', $message->getSubject());
-        $this->assertCount(7, $message->getVars());
+        $this->assertCount(8, $message->getVars());
         $this->assertSame(
             [
                 'animator_firstname' => 'Émmanuel',
@@ -95,6 +96,7 @@ class EventNotificationMessageTest extends AbstractEventMessageTest
                 'event_address' => 'conrad hong-kong pacific place 88, 69006 Lyon 6e',
                 'event_slug' => self::SHOW_EVENT_URL,
                 'event_description' => '',
+                'committee_name' => 'EM Lyon',
             ],
             $message->getVars()
         );

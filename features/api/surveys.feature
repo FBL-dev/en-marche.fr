@@ -161,7 +161,7 @@ Feature:
       "template_name": "data-survey-answered",
       "template_content": [],
       "message": {
-        "subject": "",
+        "subject": "Votre adhésion à La République En Marche !",
         "from_email": "contact@en-marche.fr",
         "global_merge_vars": [
           {
@@ -234,7 +234,7 @@ Feature:
       "template_name": "data-survey-answered",
       "template_content": [],
       "message": {
-        "subject": "",
+        "subject": "Votre adhésion à La République En Marche !",
         "from_email": "contact@en-marche.fr",
         "global_merge_vars": [
           {

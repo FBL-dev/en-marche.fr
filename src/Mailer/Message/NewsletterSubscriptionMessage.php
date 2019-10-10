@@ -13,7 +13,7 @@ final class NewsletterSubscriptionMessage extends Message
             Uuid::uuid4(),
             $subscription->getEmail(),
             null,
-            'Je marche !'
+            'Votre inscription à la newsletter de campagne'
         );
     }
 }

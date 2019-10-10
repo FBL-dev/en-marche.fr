@@ -42,7 +42,8 @@ final class EventNotificationMessage extends Message
             ),
             $event->getInlineFormattedAddress(),
             $eventLink,
-            $event->getDescription()
+            $event->getDescription(),
+            $event->getCommittee()->getName()
         );
 
         $message = new static(
@@ -80,7 +81,8 @@ final class EventNotificationMessage extends Message
         string $eventHour,
         string $eventAddress,
         string $eventLink,
-        string $eventDescription
+        string $eventDescription,
+        string $committeeName
     ): array {
         return [
             // Global common variables
@@ -91,6 +93,7 @@ final class EventNotificationMessage extends Message
             'event_address' => self::escape($eventAddress),
             'event_slug' => $eventLink,
             'event_description' => $eventDescription,
+            'committee_name' => $committeeName,
         ];
     }
 
